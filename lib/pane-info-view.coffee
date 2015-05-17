@@ -1,22 +1,23 @@
+{TextEditor} = require('atom')
+
 module.exports =
 class PaneInfoView
-  constructor: (serializedState) ->
+  constructor: (pane) ->
     # Create root element
     @element = document.createElement('div')
     @element.classList.add('pane-info')
 
-    # Create message element
-    message = document.createElement('div')
-    message.textContent = "The PaneInfo package is Alive! It's ALIVE!"
-    message.classList.add('message')
-    @element.appendChild(message)
-
-  # Returns an object that can be retrieved when package is activated
-  serialize: ->
-
-  # Tear down any state and detach
   destroy: ->
     @element.remove()
 
   getElement: ->
     @element
+
+  update: (pane) ->
+    activeItem = pane.getActiveItem()
+    activePanes = (pane for pane in atom.workspace.getPanes() when pane.paneInfo)
+    if activePanes.length > 1 and activeItem instanceof TextEditor
+      @element.textContent = activeItem?.getTitle?()
+      @element.hidden = false
+    else
+      @element.hidden = true

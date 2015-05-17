@@ -5,9 +5,6 @@
   "description": "A short description of your package",
   "keywords": [
   ],
-  "activationCommands": {
-    "atom-workspace": "pane-info:toggle"
-  },
   "repository": "https://github.com/atom/pane-info",
   "license": "MIT",
   "engines": {
