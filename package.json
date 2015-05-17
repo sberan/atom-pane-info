@@ -2,10 +2,10 @@
   "name": "pane-info",
   "main": "./lib/pane-info",
   "version": "0.0.0",
-  "description": "A short description of your package",
+  "description": "Show filename in each pane",
   "keywords": [
   ],
-  "repository": "https://github.com/atom/pane-info",
+  "repository": "https://github.com/sberan/atom-pane-info",
   "license": "MIT",
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
