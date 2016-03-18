@@ -13,6 +13,13 @@
   padding: 2px 4px;
   margin: 2px 5px;
   border-radius: 2px;
+
+  div {
+    display: inline-block;
+  }
+  div:not(:last-child)::after {
+    content: "/"
+  }
 }
 
 .pane-info.active {
