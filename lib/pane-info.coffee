@@ -4,9 +4,15 @@ PaneInfoView = require './pane-info-view'
 module.exports =
   subscriptions: null
 
+  config:
+    depth:
+      title: 'Depth'
+      type: "number"
+      default: 1
+
   activate: (state) ->
     @subscriptions = new CompositeDisposable
-    
+
     @subscriptions.add = atom.workspace.observePanes (pane) =>
       pane.paneInfo = paneInfo = new PaneInfoView(state)
       atom.views.getView(pane).appendChild(paneInfo.getElement())
